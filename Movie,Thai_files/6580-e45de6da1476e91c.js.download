@@ -1,0 +1,204 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[6580],{94475:function(e,t,a){a.d(t,{G:function(){return c}});var i=a(52322),r=a(88169),s=a(86704),o=a(72779),n=a.n(o),l=a(2784),d=a(19596);let c=e=>{let{palette:{baseColor:t}}=(0,l.useContext)(r.ThemeContext),{title:a,message:s,className:o,action:d,displayType:c}=e;return(0,i.jsx)(m,{className:n()(o,t),baseColor:"none",children:(0,i.jsxs)("div",{className:"inner",children:[(0,i.jsx)("div",{className:"title",role:"alert",children:a}),!!e.message&&(0,i.jsx)("div",{className:"message",role:"alert",children:s}),!!d&&(0,i.jsx)("compact"===c?u:p,{children:d})]})})},u=d.default.div.withConfig({componentId:"sc-ee3e44bb-0"})(["margin-top:",";"],s.spacing.s),p=d.default.div.withConfig({componentId:"sc-ee3e44bb-1"})(["margin-top:",";"],s.spacing.l),m=(0,d.default)(r.PageSection).withConfig({componentId:"sc-ee3e44bb-2"})([".inner{max-width:480px;margin:0 auto;text-align:center;}.message{margin-top:",";}&.base{.title{",";}.message{",";}}&.baseColor{.title{",";}.message{",";}}"],s.spacing.m,(0,s.setPropertyToColorVar)("color","ipt-on-base-textPrimary-color"),(0,s.setPropertyToColorVar)("color","ipt-on-base-textSecondary-color"),(0,s.setPropertyToColorVar)("color","ipt-on-baseAlt-textPrimary-color"),(0,s.setPropertyToColorVar)("color","ipt-on-baseAlt-textSecondary-color"))},64072:function(e,t,a){a.d(t,{w:function(){return r}});var i=a(10081);let r=(0,i.ZP)`
+    fragment ImageListItemMetadata on Image {
+        id
+        url
+        height
+        width
+        caption {
+            plainText
+        }
+        names(limit: 4) {
+            id
+            nameText {
+                text
+            }
+        }
+        titles(limit: 1) {
+            id
+            titleText {
+                text
+            }
+            originalTitleText {
+                text
+            }
+            releaseYear {
+                year
+                endYear
+            }
+        }
+    }
+`},97149:function(e,t,a){a.d(t,{X:function(){return r}});var i=a(10081);let r=(0,i.ZP)`
+    fragment VideoListItemMetadata on Video {
+        id
+        thumbnail {
+            url
+            width
+            height
+        }
+        name {
+            value
+            language
+        }
+        description {
+            value
+            language
+        }
+        runtime {
+            unit
+            value
+        }
+        primaryTitle {
+            id
+            originalTitleText {
+                text
+            }
+            titleText {
+                text
+            }
+            titleType {
+                canHaveEpisodes
+            }
+            releaseYear {
+                year
+                endYear
+            }
+        }
+    }
+`},93403:function(e,t,a){a.d(t,{_q:function(){return S},ZP:function(){return R}});var i=a(52322),r=a(27722),s=a(72779),o=a.n(s),n=a(2784),l=a(44778),d=a(19596),c=a(54330),u=a(11438),p=a(14438);let m={CREDIT_CHANGE:u.Cd.FILMOGRAPHY,"CONTACT_CHANGE|CONTACT__RELATIONSHIP_TYPE|REPRESENTATION":u.Cd.REPRESENTATION,EMPLOYMENT_CHANGE:u.Cd.EMPLOYMENT,"CONTACT_CHANGE|CONTACT__RELATIONSHIP_TYPE|CLIENT":u.Cd.CLIENTS,NEWS_ADDITION:u.Cd.NEWS},T={TRACK:"Track",TRACKING:"Tracking",IS_LOADING:"Loading"};var g=a(17503),f=a(11602);let I=()=>{let[e,t]=(0,g.Z)(f.Vc),a=async e=>t(e);return{success:e.data?.untrackConst?.success,error:e.error,fetching:e.fetching,updateUntrackingForConst:a}},C=()=>{let[e,t]=(0,g.Z)(f.qb),a=async e=>t(e);return{success:e.data?.trackConst?.success,error:e.error,fetching:e.fetching,updateTrackingForConst:a}},h=e=>{let[t,a]=(0,n.useState)(e),[i,r]=(0,n.useState)(!1),{updateTrackingForConst:s}=C(),{updateUntrackingForConst:o}=I(),l=async e=>{if(!1===e.isTracking&&!1!==t.isTracking){r(!0);let e=await o({input:{id:t.id}}),i={...t,isTracking:!1};e.data?.untrackConst?.success&&a(i),r(!1)}else if(!0===e.isTracking&&!1===t.isTracking){r(!0);let e=t.notificationPreferences?.map(e=>({...e,interested:!0})),i=await s({input:{id:t.id,notificationTypeStates:e?.map(e=>{let{interested:t,type:a}=e;return{typeId:a.typeId,interested:t}})}});i.data?.trackConst?.success&&a({...t,isTracking:!0,notificationPreferences:e}),r(!1)}else if(!0===e.isTracking&&e.notificationPreferences!==t.notificationPreferences){r(!0);let i={...t,isTracking:!0,notificationPreferences:t.notificationPreferences?.map(t=>{let a=t;return e.notificationPreferences?.map(e=>{e.type.typeId===t.type.typeId&&e.interested!==t.interested&&(a=e)}),a})},o=await s({input:{id:t.id,notificationTypeStates:i.notificationPreferences?.map(e=>({typeId:e.type.typeId,interested:e.interested}))}});o.data?.trackConst?.success&&a(i),r(!1)}},d=T.IS_LOADING,c=t.isTracking?T.TRACKING:T.TRACK;return{state:t,updateTracking:l,isFetching:i,ariaLabel:i?d:c}};var L=a(816);let b=e=>{let t=(0,L.A)(r.Button,{accessLevel:e.accessLevel,propsToOverride:["onClick","href","onSelect"]});return(0,i.jsx)(t,{...e})};var _=a(26754),x=a(40076),E=a(9909);let A={TRACK:"Track",TRACKING:"Tracking",STOP_TRACKING:"Stop tracking"},P={track:"track",trackButton:"track-on",trackMenu:"track-menu-open"},S="protrackbutton--tracking--post-icon",k=e=>{let t,{id:a,data:s,buttonProps:d,buttonType:T="button",displayTrackOptionsMenu:g=!0,className:f}=e,I=(0,p.EO)(),{state:{isTracking:C,notificationPreferences:L},updateTracking:k,isFetching:R}=h({id:a,isTracking:s?.isTracking||!1,notificationPreferences:s?.notificationPreferences||[]}),[M,O]=(0,n.useState)(!1);(0,c.f1)();let j={className:o()(d?.className,g?void 0:f),onColor:void 0,accessLevel:"basic"};switch(T){case"secondaryButton":t=x.J,j.onColor="accent2";break;case"textButton":t=E.o,j.onColor="accent2";break;case"outlineButton":t=_.e;break;default:t=b}let $={},V=g?y:n.Fragment;g&&($.className=f);let w=()=>I({pageAction:`${P.trackButton}-${a}`,refMarkerSuffix:u.Cd.EMPTY}),D=()=>I({pageAction:P.trackMenu,refMarkerSuffix:u.Cd.EMPTY}),F=()=>I({pageAction:`${P.track}-${u.Cd.OFF}-${a}`,refMarkerSuffix:u.Cd.MENU}),H=(e,t)=>{let a=m[e],i=t?u.Cd.OFF:u.Cd.ON;I({pageAction:`${a}-${i}`,refMarkerSuffix:u.Cd.MENU})};return(0,i.jsxs)(V,{...$,children:[!!R&&(0,i.jsx)(t,{...d,...j,children:(0,i.jsx)(r.Loader,{})}),!R&&(0,i.jsx)(t,{onSelect:()=>{C?(D(),g?O(!M):k({isTracking:!1})):(w(),k({isTracking:!0}))},preIcon:C?"notifications-add-check":"notifications-add",postIcon:C&&g?"arrow":void 0,postIconClassName:C&&g?S:void 0,...d,...j,children:C?A.TRACKING:A.TRACK}),!!C&&!!g&&(0,i.jsx)(r.SetPalette,{palette:"light",children:(0,i.jsx)(v,{isVisible:M,mode:"absolute",expandFrom:"top-right",children:(0,i.jsx)(l.Y,{onEscapeKey:()=>O(!1),onClickOutside:()=>O(!1),children:(0,i.jsxs)(r.MenuList,{children:[L?.map(e=>{let{type:t,interested:a}=e;return i.jsx(N,{onClick:()=>{H(t.typeId,a),k({isTracking:!0,notificationPreferences:[{interested:!a,type:t}]})},preIconName:a?"checkbox-checked":"checkbox-unchecked",preIconProps:{name:a?"checkbox-checked":"checkbox-unchecked",spanClassName:"checkbox-icon"},children:t.text},t.text)}),(0,i.jsx)(r.MenuListDivider,{}),(0,i.jsx)(r.MenuListItem,{onClick:()=>{F(),O(!1),k({isTracking:!1})},children:A.STOP_TRACKING})]})})})})]})};var R=e=>(0,i.jsx)(u.xm,{value:u.Cd.TRACK,children:(0,i.jsx)(k,{...e})});let y=d.default.div.withConfig({componentId:"sc-9cf15179-0"})(["position:relative;"]),N=(0,d.default)(r.MenuListItem).withConfig({componentId:"sc-9cf15179-1"})([".checkbox-icon{","}"],(0,r.setPropertyToColorVar)("color","ipt-on-base-accent2-color")),v=(0,d.default)(r.Menu).withConfig({componentId:"sc-9cf15179-2"})(["right:0;top:100%;"])},26754:function(e,t,a){a.d(t,{e:function(){return o}});var i=a(52322),r=a(27722);a(2784);var s=a(816);let o=e=>{let t=(0,s.A)(r.OutlineButton,{accessLevel:e.accessLevel,propsToOverride:["onClick","href","onSelect"]});return(0,i.jsx)(t,{...e})}},40076:function(e,t,a){a.d(t,{J:function(){return o}});var i=a(52322),r=a(27722);a(2784);var s=a(816);let o=e=>{let t=(0,s.A)(r.SecondaryButton,{accessLevel:e.accessLevel,propsToOverride:["href","onClick","onSelect"]});return(0,i.jsx)(t,{...e})}},96557:function(e,t,a){a.d(t,{Z:function(){return ee}});var i=a(52322),r=a(14973),s=a(88169),o=a(86704),n=a(10081),l=a(2784),d=a(46138),c=a(19596),u=a(31885),p=a(20608),m=a(84314),T=a(49666),g=a(49996),f=a(4363),I=a(66724),C=a(11438),h=a(37179),L=a(6935),b=a(67353),_=a(22619),x=a(25436),E=a(75808),A=a(66456),P=a(21014),S=a(86294);let k=(0,n.ZP)`
+    fragment AddConstToListMenuItem on List {
+        id
+        name {
+            originalText
+        }
+    }
+`,R=e=>{let{listData:t,isElementInList:a,constId:r,listClass:o,onError:n,primaryText:c}=e,p=(0,d.Z)(),{value:m}=(0,C.Lz)(),f=(0,A.I)()??"",{onClick:h}=(0,P.k)(r,c??""),{listMainLinkBuilder:L,userCheckinsLinkBuilder:k,userFavoritePeopleLinkBuilder:R}=(0,I.WOb)(),{palette:{baseColor:y}}=(0,l.useContext)(s.ThemeContext),{pageType:N}=(0,g.y)(),V=(0,T.ik)()&&N===x.PageType.NAME,w=t.id,D=t.name?.originalText||"",F=p.formatMessage({id:"addConstToListMenuItem_goToList_ariaLabel",defaultMessage:"Go to list: {listTitle}"},{listTitle:D}),[H,G]=(0,l.useState)(a),{addConstToList:W,removeConstFromList:B}=(0,E.j8)({overrideRefTag:V?m+`_${w}`:m}),{addToWatchedTitles:J}=(0,_.V)(),{executeAddConstToList:Y,addConstToListResult:Z}=W,{executeRemoveConstFromList:K,removeConstFromListResult:U}=B,Q=Z?.error||U?.error,q=()=>{o===u.JQJ.FavoriteActors?(h(),G(!H)):H?(K(w,r),G(!1)):(Y(w,r),G(!0),o===u.JQJ.CheckIns&&J(r))},z=L({lsconst:w,refSuffix:C.Cd.EMPTY});return(o===u.JQJ.CheckIns?z=k({urconst:f,refSuffix:C.Cd.EMPTY}):o===u.JQJ.FavoriteActors&&(z=R({urconst:f,refSuffix:C.Cd.EMPTY})),Q)?(n(Q),null):(0,i.jsxs)(v,{className:y,children:[(0,i.jsxs)(M,{onClick:q,onKeyDown:e=>{(0,b.isEnterOrSpaceKey)(e)&&q()},role:"button",tabIndex:0,"data-titleinlist":H,className:y,children:[!!H&&(0,i.jsx)(j,{name:"playlist-add-check",className:y}),!H&&(0,i.jsx)(O,{name:"add"}),(0,S.ah)(t,p,!0)]}),(0,i.jsx)($,{href:z,"aria-label":F,className:y,children:(0,i.jsx)(s.Icon,{name:"chevron-right"})})]})};R.fragments={addConstToListMenuItem:k};let y=`
+    &:focus {
+        ${(0,o.focusOnBaseAlt)()}
+    }
+
+    &:hover {
+        background: rgba(
+            ${(0,o.getColorVarValue)("ipt-on-baseAlt-rgb")},
+            ${(0,o.getColorVarValue)("ipt-baseAlt-hover-opacity")}
+        );
+        background: rgba(
+            ${(0,o.getColorVar)("ipt-on-baseAlt-rgb")},
+            ${(0,o.getColorVar)("ipt-baseAlt-hover-opacity")}
+        );
+    }
+
+    &:active {
+        background: rgba(
+            ${(0,o.getColorVarValue)("ipt-on-baseAlt-rgb")},
+            ${(0,o.getColorVarValue)("ipt-baseAlt-pressed-opacity")}
+        );
+        background: rgba(
+            ${(0,o.getColorVar)("ipt-on-baseAlt-rgb")},
+            ${(0,o.getColorVar)("ipt-baseAlt-pressed-opacity")}
+        );
+    }
+`,N=`
+    &:focus {
+        ${(0,o.focusOnBase)()}
+    }
+
+    &:hover {
+        background: rgba(
+            ${(0,o.getColorVarValue)("ipt-on-base-rgb")},
+            ${(0,o.getColorVarValue)("ipt-base-hover-opacity")}
+        );
+        background: rgba(
+            ${(0,o.getColorVar)("ipt-on-base-rgb")},
+            ${(0,o.getColorVar)("ipt-base-hover-opacity")}
+        );
+    }
+
+    &:active {
+        background: rgba(
+            ${(0,o.getColorVarValue)("ipt-on-base-rgb")},
+            ${(0,o.getColorVarValue)("ipt-base-pressed-opacity")}
+        );
+        background: rgba(
+            ${(0,o.getColorVar)("ipt-on-base-rgb")},
+            ${(0,o.getColorVar)("ipt-base-pressed-opacity")}
+        );
+    }
+`,v=c.default.div.withConfig({componentId:"sc-20ab2378-0"})(["display:flex;align-items:center;width:100%;&.base{","}&.baseAlt{","}"],N,y),M=c.default.div.withConfig({componentId:"sc-20ab2378-1"})(["flex-grow:1;cursor:pointer;padding:0.75rem 1rem 0.75rem 0.75rem;position:relative;text-overflow:ellipsis;overflow:hidden;word-break:break-all;white-space:nowrap;&::after{position:absolute;content:'';right:0;top:20%;height:60%;width:1px;}&.base::after{","}&.baseAlt::after{","}"],(0,o.setPropertyToColorVar)("background-color","ipt-base-border-color"),(0,o.setPropertyToColorVar)("background-color","ipt-baseAlt-border-color")),O=(0,c.default)(s.Icon).withConfig({componentId:"sc-20ab2378-2"})(["margin-right:0.5rem;"]),j=(0,c.default)(O).withConfig({componentId:"sc-20ab2378-3"})(["&.base{","}&.baseAlt{","}"],(0,o.setPropertyToColorVar)("color","ipt-on-base-accent4-color"),(0,o.setPropertyToColorVar)("color","ipt-on-baseAlt-accent4-color")),$=c.default.a.withConfig({componentId:"sc-20ab2378-4"})(["padding:0.75rem 1rem;flex-shrink:0;&.base{"," ","}&.baseAlt{"," ","}"],(0,o.setPropertyToColorVar)("color","ipt-on-base-textHint-color"),N,(0,o.setPropertyToColorVar)("color","ipt-on-baseAlt-textHint-color"),y),V={PROMPT_TITLE:{id:"common_add_to_list_buttonText",defaultMessage:"Add to list"},CREATE_LIST:{id:"addConstToListPrompt_label_createList",defaultMessage:"Create new list"},ERROR_TITLE:{id:"error_emptyStates_addConstToList_title",defaultMessage:"There was a problem. Please try again."},VIEW_WATCHLIST:{id:"common_label_viewWatchlist",defaultMessage:"View Watchlist"},SIGNED_OUT_ERROR_TITLE:{id:"error_signedOut_addConstToList_title",defaultMessage:"Sign in to create or view a list."},CLOSE_PROMPT_LABEL:{id:"common_ariaLabel_closePrompt",defaultMessage:"Close Prompt"},NO_LISTS_FOUND:{id:"addConstToListPrompt_no_lists_found",defaultMessage:"No lists found"},NO_LISTS_FOUND_SEARCH:{id:"addConstToListPrompt_no_lists_found_search",defaultMessage:"No lists match your search"},SEARCH_LISTS_PLACEHOLDER:{id:"addConstToListPrompt_search_lists_placeholder",defaultMessage:"Search lists..."}},w={LOADER:"actlp-loader",ERROR:"actlp-error",CREATE_LIST:"actlp-creat-list",VIEW_WATCHLIST:"actlp-watchlist",NO_LIST:"actlp-no-list"},D="addConstToListPrompt__panel";var F=a(14438),H=a(1833),G=a(83163),W=a(48687),B=a(94475),J=a(92543);let Y=(0,n.ZP)`
+    query ACTLP_Prompt(
+        $count: Int!
+        $constId: ID!
+        $after: ID
+        $listElementType: ListTypeId
+        $classTypes: [ListClassId!]
+    ) {
+        lists(
+            first: $count
+            filter: {
+                listElementType: $listElementType
+                classTypes: $classTypes
+            }
+            after: $after
+        ) {
+            total
+            edges {
+                node {
+                    ...AddConstToListMenuItem
+                    isElementInList(itemElementId: $constId)
+                    listClass {
+                        id
+                    }
+                }
+            }
+            pageInfo {
+                hasNextPage
+                endCursor
+            }
+        }
+    }
+    ${R.fragments.addConstToListMenuItem}
+`,Z={hasNextPage:!0,listItems:[],endCursor:null},K=e=>{let t,a,o;let{isOpen:n,onClose:c,primaryImage:b,primaryText:_,imageType:x}=e,E=b?.caption?.plainText||"",A=(0,m.n)(),P=(0,T.ik)(),S=(0,d.Z)(),{makeRefMarker:k}=(0,C.Lz)(),{listCreateLinkBuilder:y,listWatchlistLinkBuilder:N,registrationSignInLinkBuilder:v}=(0,I.WOb)(),M=(0,W.hg)({weblabID:G.lh.IMDB_FAVORITE_PEOPLE_1337000,treatments:{T1:!0,T2:!0}}),{pageType:O,pageConst:j}=(0,g.y)(),$=e.constId||j,B=$?.startsWith("tt"),K=$?.startsWith("nm"),ee=P?[u.JQJ.ProList]:[...M?[u.JQJ.FavoriteActors]:[],u.JQJ.CheckIns,u.JQJ.List],et=(0,F.EO)();(0,J.g)(n);let ea="poster";B&&(t=u.lZo.Titles),K&&(t=u.lZo.People,ea="avatar");let[ei,er]=(0,l.useState)(Z),[es,eo]=(0,l.useState)(""),en=(0,l.useMemo)(()=>P&&es.trim()?ei.listItems.filter(e=>{let t=e.node?.name?.originalText||"";return K&&e?.node?.listClass?.id===u.JQJ.FavoriteActors?(a=e,!1):t.toLowerCase().includes(es.toLowerCase())}):ei.listItems,[ei.listItems,es,P]),[el]=(0,f.E)({query:Y,requestPolicy:"network-only",variables:{constId:$,count:100,after:ei.endCursor,listElementType:t,classTypes:ee},context:{serverSideCacheable:!1,personalized:!0},pause:!n||!A||!$}),[ed,ec]=(0,l.useState)(void 0),eu=el.fetching,ep=el.error||ed,em=el.data?.lists?.total,eT=O&&$?(0,i.jsx)(s.TextLink,{href:v({refSuffix:[C.Cd.LIST,C.Cd.MENU],query:{u:`/${O}/${$}/`}}),text:S.formatMessage(V.SIGNED_OUT_ERROR_TITLE)}):null,eg=S.formatMessage(V.ERROR_TITLE);(0,l.useEffect)(()=>{n&&!eu&&el.data?.lists&&ei.hasNextPage&&er({listItems:el.data?.lists?.edges?ei.listItems.concat(el.data.lists.edges):ei.listItems,hasNextPage:el.data?.lists?.pageInfo?.hasNextPage,endCursor:el.data?.lists?.pageInfo?.endCursor})},[ei.hasNextPage,el.data]),(0,l.useEffect)(()=>{if(n){et({pageAction:h.QJ.ADD_TO_LIST_OPEN,hitType:r.HitType.POP_UP,refMarkerSuffix:C.Cd.EMPTY});return}er({...Z}),P&&eo("")},[n]);let ef=!ep&&n&&A&&em!==ei.listItems.length;return(0,i.jsxs)(U,{"data-testid":"styled-list-prompt",isOpen:n,onCloseClicked:()=>{c(),et({pageAction:h.QJ.ADD_TO_LIST_CLOSE,hitType:r.HitType.POP_UP,refMarkerSuffix:C.Cd.EMPTY})},panelClassName:D,baseColor:P?"base":"baseAlt",header:(0,i.jsx)(Q,{type:ea,subtitle:_,reverseTitleOrder:!0,title:S.formatMessage(V.PROMPT_TITLE),ariaLabel:E,imageModel:(0,L.K0)(b,E),imageType:x}),closePromptLabel:S.formatMessage(V.CLOSE_PROMPT_LABEL),children:[A?(0,i.jsxs)(s.MenuList,{children:[!!P&&(0,i.jsx)(s.MenuListDivider,{}),!!B&&!P&&(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(s.MenuListItem,{className:w.VIEW_WATCHLIST,"data-testid":w.VIEW_WATCHLIST,href:N({refSuffix:C.Cd.WATCHLIST}),postIconName:"chevron-right",children:(0,i.jsx)(p.q,{...V.VIEW_WATCHLIST})}),(0,i.jsx)(s.MenuListDivider,{})]}),(0,i.jsx)(s.MenuListItem,{className:w.CREATE_LIST,"data-testid":w.CREATE_LIST,href:P?(0,H.Ae)(`${H.Wr}/list/`,k(C.Cd.NEW),{}):y({refSuffix:C.Cd.NEW}),target:P?"_blank":void 0,postIconName:P?"launch":"chevron-right",children:(0,i.jsx)(p.q,{...V.CREATE_LIST})}),(0,i.jsx)(s.MenuListDivider,{}),!!P&&ei.listItems.length>0&&(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(X,{children:(0,i.jsx)(s.TextInput,{name:"listSearch",placeholder:S.formatMessage(V.SEARCH_LISTS_PLACEHOLDER),value:es,onChange:e=>eo(e.target.value),ariaLabel:"Search existing lists"})}),(0,i.jsx)(s.MenuListDivider,{})]}),!!ep&&(0,i.jsx)(q,{className:w.ERROR,"data-testid":w.ERROR,title:(o=ed,o?.graphQLErrors[0]?.extensions?.code==="FORBIDDEN")?eT:eg}),!ef&&0===ei.listItems.length&&!es.trim()&&(0,i.jsx)(q,{className:w.NO_LIST,"data-testid":w.NO_LIST,title:(0,i.jsx)(p.q,{...V.NO_LISTS_FOUND})}),!ef&&!!P&&ei.listItems.length>0&&0===en.length&&es.trim()&&(0,i.jsx)(q,{className:w.NO_LIST,"data-testid":w.NO_LIST,title:(0,i.jsx)(p.q,{...V.NO_LISTS_FOUND_SEARCH})}),!!K&&!P&&!!a&&!!$&&!!M&&(0,i.jsx)(i.Fragment,{children:(0,i.jsx)(R,{listData:a.node,listClass:a.node?.listClass?.id,isElementInList:a.node.isElementInList||!1,constId:$,onError:ec,primaryText:_},a.node.id)}),!ep&&!!$&&en.map(e=>(0,i.jsx)(R,{listData:e.node,listClass:e.node?.listClass?.id,isElementInList:e.node.isElementInList||!1,constId:$,onError:ec},e.node.id))]}):(0,i.jsx)(q,{className:w.ERROR,"data-testid":w.ERROR,title:eT}),!!ef&&(0,i.jsx)(z,{"data-testid":w.LOADER,children:(0,i.jsx)(s.Loader,{})})]})},U=(0,c.default)(s.Prompt).withConfig({componentId:"sc-3460fd7e-0"})([".","{padding:0;",";min-height:18rem;}"],D,(0,o.setPropertyToShapeVar)("border-radius","ipt-cornerRadius")),Q=(0,c.default)(s.PromptHeader).withConfig({componentId:"sc-3460fd7e-1"})([""," ",""],(0,o.setPropertyToShapeVar)("border-top-left-radius","ipt-cornerRadius"),(0,o.setPropertyToShapeVar)("border-top-right-radius","ipt-cornerRadius")),q=(0,c.default)(B.G).withConfig({componentId:"sc-3460fd7e-2"})([""," background:initial;min-height:7rem;padding:3rem;"],(0,o.setTypographyType)("body")),z=c.default.div.withConfig({componentId:"sc-3460fd7e-3"})(["display:flex;min-height:7rem;justify-content:center;padding:3rem;"]),X=c.default.div.withConfig({componentId:"sc-3460fd7e-4"})(["padding:",";background:initial;"],o.spacing.m);var ee=e=>(0,i.jsx)(C.xm,{value:C.Cd.LIST,children:(0,i.jsx)(K,{...e})})},35223:function(e,t,a){a.d(t,{TY:function(){return r},gA:function(){return s},z7:function(){return i}});let i={ADD_TO_LIST:"btp_atl",TRAILER:"btp_trlr",RETRY:"btp_ta",RATING_ROW:"btp_rt",RATING_DISPLAY:"btp_rt_ds",RATE_TRIGGER:"btp_rt_tg",METADATA_LIST:"btp_ml",GENRE_LIST:"btp_gl",PRODUCTION_STATUS:"btp_ps",SET_PREFERRED_SERVICES:"btp_sps"},r={ratingButtonRatedAriaLabel:{id:"common_ariaLabels_ratingButtonRated",defaultMessage:"Your rating: {rating}"},ratingButtonUnratedAriaLabel:{id:"common_ariaLabels_ratingButtonUnrated",defaultMessage:"Rate {titleName}"},ratingPromptRateLabel:{id:"common_ratingPrompt_rate",defaultMessage:"Rate"},closePrompt:{id:"common_ariaLabel_closePrompt",defaultMessage:"Close Prompt"},addToList:{id:"common_add_to_list_buttonText",defaultMessage:"Add to list"},trailer:{id:"common_buttons_trailer",defaultMessage:"Trailer"}},s="released"},4649:function(e,t,a){a.d(t,{a:function(){return c}});var i=a(52322),r=a(88169),s=a(2784),o=a(46138),n=a(63370),l=a(96557),d=a(35223);let c=e=>{let{title:t}=e,a=(0,o.Z)(),c=(0,n.K)({originalTitleText:t?.originalTitleText,titleText:t?.titleText}),[u,p]=(0,s.useState)(!1);return t&&c?(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(r.SecondaryButton,{width:"full-width",preIcon:"playlist-add-check","data-testid":d.z7.ADD_TO_LIST,onSelect:()=>p(!0),children:a.formatMessage(d.TY.addToList)}),(0,i.jsx)(l.Z,{constId:t.id,primaryImage:t.primaryImage,primaryText:c,imageType:"name",isOpen:u,onClose:()=>{p(!1)}})]}):null}},75808:function(e,t,a){a.d(t,{j8:function(){return I}});var i=a(10081),r=a(64072),s=a(88758),o=a(80032),n=a(36543),l=a(97149),d=a(25436),c=a(86958),u=a(49666),p=a(11438),m=a(14438),T=a(17503);let g="list-item-add",f="list-item-delete",I=e=>{let[t,a]=(0,T.Z)(C),[i,r]=(0,T.Z)(h),s=(0,c.B)().context,{makeRefMarker:o}=(0,p.Lz)(),n=(0,m.EO)(),l=(0,u.ik)()&&s.pageType===d.PageType.NAME,I=!!s.sidecar?.localizationResponse.isOriginalTitlePreferenceSet;return{addConstToList:{executeAddConstToList:(t,i)=>{let r=e.overrideRefTag??o([p.Cd.ADD,p.Cd.ITEMS]);return n({refMarkerString:r,pageAction:e.overrideAddPageAction??(l?`${g}-${i}`:g),customPageMetadata:{id:i}}),a({listId:t,constId:i,includeListItemMetadata:!!e.includeListItemMetadata,refTagQueryParam:r,originalTitleText:I})},addConstToListResult:t},removeConstFromList:{executeRemoveConstFromList:(t,a)=>(n({refMarkerString:e.overrideRefTag??o([p.Cd.DELETE,p.Cd.ITEMS]),pageAction:e.overrideRemovePageAction??(l?`${f}-${a}`:f),customPageMetadata:{id:a}}),r({listId:t,constId:a})),removeConstFromListResult:i}}},C=(0,i.ZP)`
+    mutation AddConstToList(
+        $listId: ID!
+        $constId: ID!
+        $includeListItemMetadata: Boolean!
+        $refTagQueryParam: String
+        $originalTitleText: Boolean
+    ) {
+        addItemToList(
+            input: { listId: $listId, item: { itemElementId: $constId } }
+        ) {
+            listId
+            modifiedItem {
+                ...EditListItemMetadata
+                listItem @include(if: $includeListItemMetadata) {
+                    ... on Title {
+                        ...TitleListItemMetadata
+                    }
+                    ... on Name {
+                        ...NameListItemMetadata
+                    }
+                    ... on Image {
+                        ...ImageListItemMetadata
+                    }
+                    ... on Video {
+                        ...VideoListItemMetadata
+                    }
+                }
+            }
+        }
+    }
+
+    ${o.rc}
+    ${n.Zz}
+    ${s.E}
+    ${r.w}
+    ${l.X}
+`,h=(0,i.ZP)`
+    mutation RemoveConstFromList($listId: ID!, $constId: ID!) {
+        removeElementFromList(
+            input: { listId: $listId, itemElementId: $constId }
+        ) {
+            listId
+        }
+    }
+`}}]);
